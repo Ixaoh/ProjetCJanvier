@@ -1,0 +1,15 @@
+#include <stdlib>
+#include <stdio.h>
+#include <unistd.h>// utiliser pour le sleep.
+#include <time.h>// utiliser pour le temps
+
+
+
+struct voitures(mat, temps){
+  int matr = mat ;
+  int tps = temps;
+} voitures1(44,""), voitures2(6, ""),voitures3(5,""), voitures4(7,""),voitures5(3,"")
+,voitures6(33,""),voitures7(19,""),voitures8(77,""),voitures9(11,"")
+,voitures10(27,""),voitures11(26,""),voitures12(55,""),voitures13(14,""),voitures14(22,"")
+,voitures15(9,""),voitures16(12,""),voitures17(20,""),voitures18(30,""),voitures19(8,"")
+,voitures20(21,""),voitures21(31,""),voitures22(94,"");
