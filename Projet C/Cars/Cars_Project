@@ -1,15 +1,123 @@
-#include <stdlib>
 #include <stdio.h>
-#include <unistd.h>// utiliser pour le sleep.
-#include <time.h>// utiliser pour le temps
+#include <stdlib.h>
+#include <time.h>
 
 
+//create information about time and cars
+typedef struct {
+     int numero ;
+     double timeP1 ;
+     double timeP2 ;
+     double timeP3 ;
+     double timeP4Q1 ;
+     double timeP4Q2 ;
+     double timeP4Q3 ;
+     int standp1 ;
+     int standp2 ;
+     int standp3 ;
+     int standp4 ;
+     int abandonp1 ;
+     int abandonp2 ;
+     int abandonp3 ;
+     int abandonp4 ;
+    }voiture;
 
-struct voitures(mat, temps){
-  int matr = mat ;
-  int tps = temps;
-} voitures1(44,""), voitures2(6, ""),voitures3(5,""), voitures4(7,""),voitures5(3,"")
-,voitures6(33,""),voitures7(19,""),voitures8(77,""),voitures9(11,"")
-,voitures10(27,""),voitures11(26,""),voitures12(55,""),voitures13(14,""),voitures14(22,"")
-,voitures15(9,""),voitures16(12,""),voitures17(20,""),voitures18(30,""),voitures19(8,"")
-,voitures20(21,""),voitures21(31,""),voitures22(94,"");
+// calculate 
+double randP1andP2(void){
+    return ( (double)rand()/(double)RAND_MAX ) * 90  ;
+}
+double randP4Q1(void){
+    return ( (double)rand()/(double)RAND_MAX ) * (18.00-0) + 0 ;
+}
+double randP4Q2(void){
+    return ( (double)rand()/(double)RAND_MAX ) * (15.00-0) + 0 ;
+}
+double randP4Q3(void){
+    return ( (double)rand()/(double)RAND_MAX ) * (12.00-0) + 0 ;
+}
+int randstand(void){
+    return rand()%2 ;
+}
+int randabandon(void){
+    return rand()%2 ;
+}
+
+voiture test( int num , int s1 , int a1 , double t1 , int s2 , int a2 , double t2 , int s3 , int a3  , double t3 , int s4 , int a4  , double t4 , double t5 , double t6   ){
+    voiture test ;
+
+    test.numero = num ;
+
+
+    test.standp1 =  s1 ;
+    test.abandonp1 = a1 ;
+    if(test.standp1 == 1 && test.abandonp1 == 1 ){
+        test.timeP1 = t1 ;
+    }
+
+
+    test.standp2 =  s2 ;
+    test.abandonp2 = a2 ;
+    if(test.standp2 == 1 && test.abandonp2 == 1 ){
+        test.timeP2 = t2 ;
+    }
+
+
+    test.standp3 =  s3 ;
+    test.abandonp3 = a3 ;
+    if(test.standp3 == 1 && test.abandonp3 == 1 ){
+        test.timeP3 = t3 ;
+    }
+
+
+    test.standp4 =  s4 ;
+    test.abandonp4 = a4 ;
+    if(test.standp4 == 1 && test.abandonp4 == 1 ){
+        test.timeP4Q1= t4 ;
+        test.timeP4Q2= t5 ;
+        test.timeP4Q3= t6 ;
+    }
+
+    return test ;
+}
+int main(int argc, char *argv[])
+  {
+    srand(time(NULL));
+    voiture voit44 = test(44 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit6 = test(6 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit5 = test(5 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit7 = test(7 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit3 = test(3 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit33 = test(33 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit19 = test(19 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit77 = test(77 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit11 = test(11 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit27 = test(27 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit26 = test(26 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit55 = test(55 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit14 = test(14 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit22 = test(22 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit9 = test(9 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit12 = test(12 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit20 = test(20 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit30 = test(30 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit8 = test(8 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit21 = test(21 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit31 = test(31 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    voiture voit94 = test(94 , randabandon() , randstand()  , randP1andP2() ,randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP1andP2(), randabandon() , randstand()  , randP4Q1(), randP4Q2() , randP4Q3()   ) ;
+    printf("%.2f   " , randP4Q1() ) ;
+    printf("%d  ",voit44.numero) ;
+    printf("%d  ",voit44.abandonp1) ;
+    printf("%d  ",voit44.standp1) ;
+    printf("%f  ",voit44.timeP1) ;
+    printf("%d  ",voit44.abandonp2) ;
+    printf("%d  ",voit44.standp2) ;
+    printf("%f  ",voit44.timeP2) ;
+    printf("%d  ",voit44.abandonp3) ;
+    printf("%d  ",voit44.standp3) ;
+    printf("%f  ",voit44.timeP3) ;
+    printf("%d  ",voit44.abandonp4) ;
+    printf("%d  ",voit44.standp4) ;
+    printf("%f  ",voit44.timeP4Q1) ;
+    printf("%f  ",voit44.timeP4Q2) ;
+    printf("%f  ",voit44.timeP4Q3) ;
+  }
